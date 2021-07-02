@@ -1,2 +1,2 @@
 # 0xarun.github.io
-Windows stuff
+just random blog
