@@ -17,10 +17,10 @@ minimal_mistakes_skin    : "dark" # "air", "aqua", "contrast", "dark", "dirt", "
 # Site Settings
 locale                   : "en-US"
 title                    : |+
- 0xArun
+ 0xarun
 title_separator          : "-"
-name                     : "Your Name"
-description              : "An awesome website."
+name                     : "Arunkumar"
+description              : "Just random blog"
 url                      : "https://0xarun.github.io"
 baseurl                  : ""
 repository               : "0xarun/0xarun.github.io"
@@ -107,7 +107,7 @@ analytics:
 # Site Author
 author:
   name   : |+
-   \\0xArun\
+   \\0xarun\
   avatar : "/assets/img/profile.PNG"
   bio    : "Just another infosec guy"
   location         : "India"
