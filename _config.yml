@@ -20,7 +20,7 @@ title                    : |+
  0xArun
 title_separator          : "-"
 name                     : "Arunkumar"
-description              : "Just random blog"
+description              : "Just a random blog"
 url                      : "https://0xarun.github.io"
 baseurl                  : ""
 repository               : "0xarun/0xarun.github.io"
@@ -109,7 +109,7 @@ author:
   name   : |+
    \\0xarun\
   avatar : "/assets/img/profile.PNG"
-  bio    : "Just another infosec guy"
+  bio    : "Just a another infosec guy"
   location         : "India"
   email  : # optional
   links:
