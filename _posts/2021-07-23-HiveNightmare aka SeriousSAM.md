@@ -1,12 +1,9 @@
 #   HiveNightmare
 
-Security Vulnerability
-
-Discovered by Jonas Lyk
-
-Released: Jul 20, 2021
+Security Researcher [@jonasLyk](https://twitter.com/jonasLyk) discovered this vulnerability while he testing windows 11.
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">yarh- for some reason on win11 the SAM file now is READ for users.<br>So if you have shadowvolumes enabled you can read the sam file like this:<br><br>I dont know the full extent of the issue yet, but its too many to not be a problem I think. <a href="https://t.co/kl8gQ1FjFt">pic.twitter.com/kl8gQ1FjFt</a></p>&mdash; Jonas L (@jonasLyk) <a href="https://twitter.com/jonasLyk/status/1417205166172950531?ref_src=twsrc%5Etfw">July 19, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+
 
 On July 20, 2021 Microsoft released the vulnerability as _Windows Elevation of Privilege Vulnerability_ __CVE-2021-36934__. Later July 22, 2021, the vulnerability has been confirmed to affect Windows 10 version 1809 as well as windows server 2019.
 
@@ -22,7 +19,7 @@ URL: https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2021-36934
 
 ### Exploit
 
-Direct link: https://github.com/GossiTheDog/HiveNightmare/raw/master/Release/HiveNightmare.exe
+Direct link: (https://github.com/GossiTheDog/HiveNightmare/raw/master/Release/HiveNightmare.exe)
 
 
 
