@@ -1,6 +1,5 @@
 #   HiveNightmare
 
-![image](../assets/img/serioussam.jpeg)
 
 Security Researcher [@jonasLyk](https://twitter.com/jonasLyk) discovered this vulnerability while he was testing windows 11.
 
@@ -10,6 +9,8 @@ Security Researcher [@jonasLyk](https://twitter.com/jonasLyk) discovered this vu
 On July 20, 2021 Microsoft released the vulnerability as _Windows Elevation of Privilege Vulnerability_ __CVE-2021-36934__. Later July 22, 2021, the vulnerability has been confirmed to affect Windows 10 version 1809 as well as windows server 2019.
 
 CVE-2021-36934 named as **HiveNightmare (aka SeriousSAM)** this is Local Privilege Escalation vulnerability allows to that non-privileged local users can read access to the Security Account Manager (SAM), SYSTEM, and SECURITY Registry hive files and other critical files.
+
+![image](../assets/img/serioussam.jpeg)
 
 ## About CVE-2021-36934
 CVE Title: **Windows Elevation of Privilege Vulnerability**
