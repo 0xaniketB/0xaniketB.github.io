@@ -16,9 +16,7 @@ URL: [https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2021-36934
 
 Direct link: [https://github.com/GossiTheDog/HiveNightmare/raw/master/Release/HiveNightmare.exe](https://github.com/GossiTheDog/HiveNightmare/raw/master/Release/HiveNightmare.exe)
 
-
-
-
+![image](../assets/img/hivenightmare-exploit.png)
 
 ## Resources
 
