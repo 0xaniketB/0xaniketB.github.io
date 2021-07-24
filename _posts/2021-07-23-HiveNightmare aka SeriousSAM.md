@@ -1,6 +1,6 @@
 #   HiveNightmare
 
-![image](../assets/img/serioussam.jpegA)
+![image](../assets/img/serioussam.jpeg)
 
 Security Researcher [@jonasLyk](https://twitter.com/jonasLyk) discovered this vulnerability while he was testing windows 11.
 
