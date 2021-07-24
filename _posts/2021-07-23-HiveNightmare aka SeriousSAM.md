@@ -1,5 +1,7 @@
 #   HiveNightmare
 
+![image](../assets/img/serioussam.jpegA)
+
 Security Researcher [@jonasLyk](https://twitter.com/jonasLyk) discovered this vulnerability while he was testing windows 11.
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">yarh- for some reason on win11 the SAM file now is READ for users.<br>So if you have shadowvolumes enabled you can read the sam file like this:<br><br>I dont know the full extent of the issue yet, but its too many to not be a problem I think. <a href="https://t.co/kl8gQ1FjFt">pic.twitter.com/kl8gQ1FjFt</a></p>&mdash; Jonas L (@jonasLyk) <a href="https://twitter.com/jonasLyk/status/1417205166172950531?ref_src=twsrc%5Etfw">July 19, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
