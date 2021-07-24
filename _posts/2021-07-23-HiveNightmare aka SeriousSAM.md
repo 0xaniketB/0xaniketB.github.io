@@ -1,7 +1,9 @@
 #   HiveNightmare
 
 Security Vulnerability
+
 Discovered by Jonas Lyk
+
 Released: Jul 20, 2021
 
 On July 20, 2021 Microsoft released the vulnerability as _Windows Elevation of Privilege Vulnerability_ __CVE-2021-36934__. Later July 22, 2021, the vulnerability has been confirmed to affect Windows 10 version 1809 as well as windows server 2019.
