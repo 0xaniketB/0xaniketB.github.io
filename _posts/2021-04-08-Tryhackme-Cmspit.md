@@ -44,7 +44,7 @@ try to exploit!
 
 http://10.10.59.7/auth/login intercept the request send to repeater then modify the request Using the _$func_ operator of the MongoLite library (used by default)
 
-![image](../assets/img/thm/cmspitvar_dump.png)
+![image](../assets/img/thm/cmspit/var_dump.png)
 
 we successfully dumped!
 
@@ -63,7 +63,7 @@ user parameter to token and add $func param too and send value var_dump.
 
 As successfully we got token
 
-**Step 4: Send new request for new password**
+**Step 3: Send new request for new password**
 
 Change the header as auth/newpassword and add token parameter to send token!
 
@@ -73,6 +73,7 @@ Change the header as auth/newpassword and add token parameter to send token!
 
 Done! next lets login
 
+Dashboard
 ![image](../assets/img/thm/cmspit/dashboard.png)
 
 ## Time to Reverse shell
