@@ -4,7 +4,7 @@ URL: [https://tryhackme.com/room/cmspit](https://tryhackme.com/room/cmspit)
 
 Difficulty: Medium 
 
-Author: ![stuxnet](https://tryhackme.com/p/stuxnet)
+Author: [stuxnet](https://tryhackme.com/p/stuxnet)
 
 ## Enumeration
 
