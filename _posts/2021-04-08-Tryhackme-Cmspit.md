@@ -82,15 +82,15 @@ Go to finder and click create ..file
 
 ![image](../assets/img/thm/cmspit/finder.png)
 
-create a file shellme.php
+create a php file for web shell _shellme.php_
 
 ![image](../assets/img/thm/cmspit/create.png)
 
-create a file shellme.php
+file is created successfully 
 
 ![image](../assets/img/thm/cmspit/shellme.png)
 
-and edit the file enter php payload
+then edit the file enter the php payload
 
 ```php
 <?php
