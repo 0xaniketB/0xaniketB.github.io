@@ -42,7 +42,7 @@ try to exploit!
 
 **Step 1: Dump Users**
 
-[http://10.10.59.7/auth/login](http://10.10.59.7/auth/login)tercept the request send to repeater then modify the request Using the _$func_ operator of the MongoLite library (used by default)
+[http://10.10.59.7/auth/login](http://10.10.59.7/auth/login) intercept the request send to repeater then modify the request Using the _$func_ operator of the MongoLite library (used by default)
 
 ![image](../assets/img/thm/cmspit/var_dump.png)
 
