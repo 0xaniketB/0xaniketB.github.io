@@ -35,14 +35,14 @@ Two open ports 22/shh and 80/http
 
 We known cms is Cockpit then look google for any exploit!
 
-we got this article ![https://swarm.ptsecurity.com/rce-cockpit-cms/](https://swarm.ptsecurity.com/rce-cockpit-cms/) and next as follow this
+we got this article [https://swarm.ptsecurity.com/rce-cockpit-cms/](https://swarm.ptsecurity.com/rce-cockpit-cms/) and next as follow this
 try to exploit!
 
 ## Exploit
 
 **Step 1: Dump Users**
 
-http://10.10.59.7/auth/login intercept the request send to repeater then modify the request Using the _$func_ operator of the MongoLite library (used by default)
+[http://10.10.59.7/auth/login](http://10.10.59.7/auth/login)tercept the request send to repeater then modify the request Using the _$func_ operator of the MongoLite library (used by default)
 
 ![image](../assets/img/thm/cmspit/var_dump.png)
 
@@ -78,9 +78,3 @@ Dashboard
 
 ## Time to Reverse shell
 
-
-> db.user.find()
-dbdb.user.find()
-{ "_id" : ObjectId("60a89d0caadffb0ea68915f9"), "name" : "p4ssw0rdhack3d!123" }
-{ "_id" : ObjectId("60a89dfbaadffb0ea68915fa"), "name" : "stux" }
-> 
