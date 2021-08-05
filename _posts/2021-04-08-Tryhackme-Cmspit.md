@@ -147,7 +147,7 @@ sudo -l
 
 PrivEsc using Exiftool 
 
-![image](../assets/img/thm/cmspit/sudo-l.jpg)
+![image](../assets/img/thm/cmspit/sudo-l.png)
 
 On ![Gtfobins](https://gtfobins.github.io/gtfobins/exiftool/#sudo)
 
@@ -165,7 +165,7 @@ Download the script then send to the Machine
 
 	sudo -u root /usr/local/bin/exiftool delicate.jp
 
-![image](../assets/img/thm/cmspit/root.jpg)
+![image](../assets/img/thm/cmspit/root.png)
 
 Rooted!
 
