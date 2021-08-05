@@ -1,6 +1,14 @@
+Machine: CMSpit
+
+URL: [https://tryhackme.com/room/cmspit](https://tryhackme.com/room/cmspit)
+
+Difficulty: Medium 
+
+Author: ![stuxnet](https://tryhackme.com/p/stuxnet)
+
 ## Enumeration
 
-### Nmap
+#### Nmap
 
 	# Nmap 7.91 scan initiated Mon Aug  2 21:11:13 2021 as: nmap -v -sC -sV -oA nmap/scan 10.10.106.225
 	Increasing send delay for 10.10.106.225 from 0 to 5 due to 118 out of 391 dropped probes since last increase.
