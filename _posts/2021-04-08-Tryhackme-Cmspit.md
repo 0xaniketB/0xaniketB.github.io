@@ -149,7 +149,7 @@ PrivEsc using Exiftool
 
 ![image](../assets/img/thm/cmspit/sudo-l.png)
 
-On ![Gtfobins](https://gtfobins.github.io/gtfobins/exiftool/#sudo)
+On [Gtfobins](https://gtfobins.github.io/gtfobins/exiftool/#sudo)
 
 	sudo exiftool -filename=/home/stux/root.txt /root/root.txt
 
