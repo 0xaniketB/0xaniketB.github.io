@@ -133,4 +133,4 @@ in this we get _webflag_ and user creds..
 
 Yeah! we got ssh crendentials stux:p4ssxxxxxxxxx123
 
-
+## Privilege escalation
