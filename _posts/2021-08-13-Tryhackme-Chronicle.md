@@ -201,8 +201,7 @@ And next looking into the file we got _key_
 
 Successfully API Key, lets send request with this key
 
-```bash Request && Response
-
+```bash
 POST /api/admin HTTP/1.1
 Host: 10.10.89.35:8081
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0
@@ -235,7 +234,7 @@ Payload
 
 	wget https://raw.githubusercontent.com/danielmiessler/SecLists/master/Usernames/Names/names.txt
 
-```bash ffuf
+```bash
 ffuf -w /opt/Seclists/Usernames/Names/names.txt -u http://10.10.120.54:8081/api/FUZZ -X POST -H "Content-Type: application/json" \
       -d '{"key":"7454c262d0d5a3a0c0b678d6c0dbc7ef"}' -fr "error" -fs 16
 ```
