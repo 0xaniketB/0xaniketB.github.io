@@ -1,4 +1,4 @@
-Machine: Chronicle
+Chronicle Tryhackme Writeup
 
 [https://tryhackme.com/room/chronicle](https://tryhackme.com/room/chronicle)
 
@@ -433,7 +433,7 @@ p = process('./smail')
 
 base = 0x7ffff79e2000
 sys = base + 0x4f550
-binsh = + 0x1b3e1a
+binsh = base + 0x1b3e1a
 
 rop_rdi = 0x4007f3
 
