@@ -23,17 +23,17 @@
 
 http/80
 
-![image](../assests/img/thm/chronicle/old.png)
+![image](../assets/img/thm/chronicle/old.png)
 
 http/8081 Werkzeug httpd 1.0.1
 
-![image](../assests/img/thm/chronicle/8081.png)
+![image](../assets/img/thm/chronicle/8081.png)
 
 The webpage its has login functionality but login and register are static not works.
 
 But the _forgot_ page its interesting [http://10.10.89.35:8081/forgot](http://10.10.89.35:8081/forgot)
 
-![image](../assests/img/thm/chronicle/forgot.png)
+![image](../assess/img/thm/chronicle/forgot.png)
 
 _"Not to worry. Just enter your username below and we'll show you your password.."_
 
