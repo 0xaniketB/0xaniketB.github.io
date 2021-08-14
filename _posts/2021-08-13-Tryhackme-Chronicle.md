@@ -257,7 +257,7 @@ curl -X POST http://10.10.120.54:8081/api/toxxxy -H "Content-Type: application/j
 ```
 We got password successfully. Then what ssh get user.txt
 
-## PrivESC
+## Privilege Escalation 
 
 The machine has two users as we known tommy and _carlJ_
 
@@ -318,7 +318,7 @@ Master Password for profile 0ryxwn4c.default-release:
 
 Website:   https://incognito.com
 Username: 'dev'
-Password: 'Pas$w0RD59247'
+Password: 'Paxxxxxxx247'
 ```
 Master Password for profile 0ryxwn4c.default-release: password I tried some random passwords like admin, password, and **password1** was working.
 
