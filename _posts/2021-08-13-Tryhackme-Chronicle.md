@@ -1,3 +1,9 @@
+Machine: Chronicle
+
+[https://tryhackme.com/room/chronicle](https://tryhackme.com/room/chronicle)
+
+Difficulty: Medium 
+
 ## Enumeration
 
 #### Nmap
