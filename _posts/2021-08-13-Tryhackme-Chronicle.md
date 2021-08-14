@@ -37,9 +37,9 @@ But the _forgot_ page its interesting [http://10.10.89.35:8081/forgot](http://10
 
 _"Not to worry. Just enter your username below and we'll show you your password.."_
 
-As you seen above by entering the username to see our password then try. Firstly go look into the request just type random username intercept the request send to repeater.
+As you seen above by entering the username to see the password. Just type random username intercept the request send to repeater.
 
-```bash forgot request
+```bash
 POST /api/admin HTTP/1.1
 Host: 10.10.89.35:8081
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0
@@ -57,7 +57,7 @@ Referer: http://10.10.89.35:8081/forgot?
 
 I gives username as admin. On the request above you seen its sends username by api /api/admin in POST request and data key:NULL.
 
-```bash forgot response
+```bash
 HTTP/1.0 200 OK
 Content-Type: text/html; charset=utf-8
 Content-Length: 15
