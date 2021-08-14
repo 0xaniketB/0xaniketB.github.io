@@ -350,9 +350,11 @@ The first one has limit 80 but its works input more than 80 also
 
 ![image](../assets/img/thm/chronicle/smail2.png)
 
-But the second one has getting sementation fault.
+But the second one is interesting getting sementation fault.
 
-"A ret2libc is based off the system function found within the C library. This function executes anything passed to it making it the best target. Another thing found within libc is the string /bin/sh; if you pass this string to system, it will pop a shell.""
+"A ret2libc is based off the system function found within the C library. This function executes anything passed to it making it the best target. Another thing found within libc is the string /bin/sh; if you pass this string to system, it will pop a shell."
+
+![image](../assets/img/thm/chronicle/ret2libc-bufferoverflow.jpg)
 
 "All the standard C functions have been compiled into a single file, named the standard C library or the libc. A libc is native to the system that you are working on and is independent of the binary (compiled program). You can use the ldd command to find out which libc is being used by an application."
 
