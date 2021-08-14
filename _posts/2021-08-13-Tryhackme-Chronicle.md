@@ -33,7 +33,7 @@ The webpage its has login functionality but login and register are static not wo
 
 But the _forgot_ page its interesting [http://10.10.89.35:8081/forgot](http://10.10.89.35:8081/forgot)
 
-![image](../assess/img/thm/chronicle/forgot.png)
+![image](../assets/img/thm/chronicle/forgot.png)
 
 _"Not to worry. Just enter your username below and we'll show you your password.."_
 
