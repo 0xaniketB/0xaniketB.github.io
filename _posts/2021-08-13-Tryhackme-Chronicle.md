@@ -201,7 +201,6 @@ And next looking into the file we got _key_
 +    if(data['key']=='7454cxxxxxxxxxxxxxxxxxxxxxxbc7ef'):
 +    xhttp.send('{"key":"NULL"}')       //Removed the API Key to stop the forget password functionality 
 +    if(data['key']=='abcd'):
-
 ```
 Successfully API Key, lets send request with this key
 
