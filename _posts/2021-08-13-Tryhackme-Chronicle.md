@@ -185,16 +185,17 @@ And next
 
 "git log patch command displays the files that have been modified"
 
-	git log --patch > paths
+	git log --patch > keys
 
 its gives us a lengthy output so i saves the output to file name paths 
 
 And next looking into the file we got _key_
 
-	less paths | grep key
+	less keys | grep key
 ```bash
+
 ┌──(arundhanush㉿kali)-[~/…/THM/chronicle/10.10.101.255/old]
-└─$ less paths | grep key
+└─$ less keys | grep key
 -    xhttp.send('{"key":"NULL"}')       //Removed the API Key to stop the forget password functionality 
 -    if(data['key']=='7454cxxxxxxxxxxxxxxxxxxxxxxbc7ef'):
 -    if(data['key']=='abcd'):
