@@ -191,17 +191,10 @@ its gives us a lengthy output so i saves the output to file name paths
 
 And next looking into the file we got _key_
 
-	less keys | grep key
-```bash
-┌──(arundhanush㉿kali)-[~/…/THM/chronicle/10.10.101.255/old]
-└─$ less paths | grep key
--    xhttp.send('{"key":"NULL"}')       //Removed the API Key to stop the forget password functionality 
--    if(data['key']=='7454cxxxxxxxxxxxxxxxxxxxxxxbc7ef'):
--    if(data['key']=='abcd'):
-+    if(data['key']=='7454cxxxxxxxxxxxxxxxxxxxxxxbc7ef'):
-+    xhttp.send('{"key":"NULL"}')       //Removed the API Key to stop the forget password functionality 
-+    if(data['key']=='abcd'):
-```
+	less key | grep key
+
+![image](../assets/img/thm/chornicle/key.jpg)
+
 Successfully API Key, lets send request with this key
 
 ```bash
