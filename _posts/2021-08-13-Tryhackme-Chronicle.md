@@ -193,7 +193,7 @@ And next looking into the file we got _key_
 
 	less key | grep key
 
-![image](../assets/img/thm/chornicle/key.jpg)
+![image](../assets/img/thm/chronicle/key.jpg)
 
 Successfully API Key, lets send request with this key
 
