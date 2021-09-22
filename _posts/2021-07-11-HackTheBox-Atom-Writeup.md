@@ -26,7 +26,7 @@
 
 # Enumeration
 
-\## Full TCP Scan
+## Full TCP Scan
 
 ```
 ⛩\> nmap -sT -Pn -sV -sC -v -oA enum 10.129.137.129
@@ -108,7 +108,7 @@ PORT     STATE SERVICE
 
 As you can see full port scan revealed Redis (6379) and Wsman (5985). Let’s perform a service scan on these new found ports.
 
-##Service Scan
+## Service Scan
 
 ```
 ⛩\> nmap -p 80,135,445,5985,6379,7680 -sC -sV -Pn -v 10.129.137.129
@@ -156,7 +156,7 @@ Host script results:
 
 Let’s do SMB enumeration for any shared folders.
 
-##SMB Share Enumeration
+## SMB Share Enumeration
 
 ```
 ⛩\> nmap -p445 --script smb-enum-shares 10.129.137.129
@@ -194,7 +194,7 @@ Host script results:
 
 We got one shared directory which is worth looking into. Let’s access it via SmbClient.
 
-##Access SMB share and download PDF
+## Access SMB share and download PDF
 
 ```
 ⛩\> smbclient //10.129.137.129/Software_Updates -N
