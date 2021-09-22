@@ -20,7 +20,7 @@ title                    : |+
  InfoSec Blog
 title_separator          : "-"
 name                     : "Aniket"
-description              : "Wri"
+description              : "This blog is dedicated to infosec and writeups for HTB and THM"
 url                      : "https://0xaniketB.github.io"
 baseurl                  : ""
 repository               : "0xaniketB/0xaniketB.github.io"
@@ -145,7 +145,7 @@ footer:
       # url:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/0xaniketB/0xaniketB.github.io"
+      url: "https://github.com/0xaniketB"
     - label: "GitLab"
       icon: "fab fa-fw fa-gitlab"
       # url:
