@@ -17,13 +17,13 @@ minimal_mistakes_skin    : "dark" # "air", "aqua", "contrast", "dark", "dirt", "
 # Site Settings
 locale                   : "en-US"
 title                    : |+
- Aniket
+ InfoSec Blog
 title_separator          : "-"
 name                     : "Aniket"
 description              : "Wri"
 url                      : "https://0xaniketB.github.io"
 baseurl                  : ""
-repository               : "0xarun/0xaniketB.github.io"
+repository               : "0xaniketB/0xaniketB.github.io"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
@@ -109,6 +109,8 @@ author:
   name   : |+
    ⛩ 0xAniket
   avatar : "/assets/img/Profile_Picture.jpg"
+  bio    : "PenTester"
+  location : "India"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
@@ -143,7 +145,7 @@ footer:
       # url:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/0xarun/0xaniketB.github.io"
+      url: "https://github.com/0xaniketB/0xaniketB.github.io"
     - label: "GitLab"
       icon: "fab fa-fw fa-gitlab"
       # url:
