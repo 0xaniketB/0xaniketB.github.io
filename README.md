@@ -1,2 +1,1 @@
-# 0xarun.github.io
-just random blog
+InfoSec Blog
