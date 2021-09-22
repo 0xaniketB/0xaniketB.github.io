@@ -17,13 +17,13 @@ minimal_mistakes_skin    : "dark" # "air", "aqua", "contrast", "dark", "dirt", "
 # Site Settings
 locale                   : "en-US"
 title                    : |+
- 0xArun
+ Aniket
 title_separator          : "-"
-name                     : "Arunkumar"
-description              : "Just a random blog"
-url                      : "https://0xarun.github.io"
+name                     : "Aniket"
+description              : "Wri"
+url                      : "https://0xaniketB.github.io"
 baseurl                  : ""
-repository               : "0xarun/0xarun.github.io"
+repository               : "0xarun/0xaniketB.github.io"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
@@ -89,7 +89,7 @@ facebook:
   username               :
   app_id                 :
   publisher              :
-og_image                 : "/assets/img/profile.PNG"
+og_image                 : "/assets/img/Profile_Picture.jpg"
 # - https://developers.google.com/structured-data/customize/social-profiles
 social:
   type                   : # Person or Organization (defaults to Person)
@@ -98,39 +98,36 @@ social:
 
 # Analytics
 analytics:
-  provider               : "google" # false (default), "google", "google-universal", "custom"
+  provider               : # false (default), "google", "google-universal", "custom"
   google:
-    tracking_id          : "G-1BKX09SQT8"
-    anonymize_ip         : true # true, false (default)
+    tracking_id          : #
+    anonymize_ip         : # true, false (default)
 
 
 # Site Author
 author:
   name   : |+
-   \\0xarun\
-  avatar : "/assets/img/profile.PNG"
-  bio    : "Student IT, Cyber Security enthusiast"
-  location         : "India"
-  email  : # optional
+   ⛩ 0xAniket
+  avatar : "/assets/img/Profile_Picture.jpg"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
       # url: mailto:your.name@email.com
-    - label: "Website"
+    - label: "HTB Profile"
       icon: "fas fa-fw fa-link"
-      # url: "https://your-website.com"
+      url: "https://hackthebox.eu/profile/122650"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/0xarun"
+      # url: "https://twitter.com/0xarun"
     - label: "Facebook"
       icon: "fab fa-fw fa-facebook-square"
-      url: "https://facebook.com/arundhanush.r"
+      # url: "https://facebook.com/arundhanush.r"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/0xarun"
+      url: "https://github.com/0xaniketB"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
-      url: "https://instagram.com/0xarun"
+      # url: "https://instagram.com/0xarun"
 
 # Site Footer
 footer:
@@ -143,7 +140,7 @@ footer:
       # url:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/0xarun/0xarun.github.io"
+      url: "https://github.com/0xarun/0xaniketB.github.io"
     - label: "GitLab"
       icon: "fab fa-fw fa-gitlab"
       # url:
